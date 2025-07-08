@@ -1,0 +1,109 @@
+/* Accessibility styles */
+:root {
+  --base-font-size: 1rem;
+  --text-color: #1a1a1a;
+  --bg-color: #f7f7f7;
+  --link-color: #396842;
+}
+
+/* Font size classes */
+.text-normal {
+  font-size: var(--base-font-size);
+}
+
+.text-large {
+  font-size: calc(var(--base-font-size) * 1.25);
+}
+
+.text-x-large {
+  font-size: calc(var(--base-font-size) * 1.5);
+}
+
+/* High contrast mode */
+.high-contrast {
+  --text-color: #ffffff;
+  --bg-color: #000000;
+  --link-color: #ffff00;
+}
+
+.high-contrast body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.high-contrast a {
+  color: var(--link-color);
+}
+
+/* Dyslexic font */
+.dyslexic-font body,
+.dyslexic-font h1,
+.dyslexic-font h2,
+.dyslexic-font h3,
+.dyslexic-font h4,
+.dyslexic-font h5,
+.dyslexic-font h6,
+.dyslexic-font p,
+.dyslexic-font span,
+.dyslexic-font a,
+.dyslexic-font button,
+.dyslexic-font input,
+.dyslexic-font select,
+.dyslexic-font textarea {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.001s !important;
+  transition-duration: 0.001s !important;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Dropdown scrolling */
+.dropdown-scrollable {
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.dropdown-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.dropdown-scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.dropdown-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jfkcannabis.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /account/
+
+# Allow important pages
+Allow: /shop/
+Allow: /brands/
+Allow: /delivery/
+Allow: /cafe/
+Allow: /blog/
+Allow: /memberships/
+Allow: /subscriptions/
+
+# Crawl delay
+Crawl-delay: 1

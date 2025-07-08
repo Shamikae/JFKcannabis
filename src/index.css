@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --base-font-size: 1rem;
+  --text-color: #1a1a1a;
+  --bg-color: #f7f7f7;
+  --link-color: #396842;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  @apply bg-neutral-50 text-neutral-900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  @apply font-medium tracking-tight;
+}
+
+/* Touch targets for mobile */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  @apply flex items-center justify-center;
+}
+
+/* Custom classes */
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors touch-target;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors touch-target;
+  }
+  
+  .btn-outline {
+    @apply border border-primary-600 text-primary-600 hover:bg-primary-50 font-medium py-2 px-4 rounded-lg transition-colors touch-target;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-product overflow-hidden;
+  }
+
+  .section-heading {
+    @apply text-2xl md:text-3xl font-bold mb-6 text-neutral-900;
+  }
+  
+  .subtitle {
+    @apply text-lg text-neutral-600 mb-8 max-w-2xl;
+  }
+
+  /* Mobile-specific improvements */
+  .mobile-card {
+    @apply card hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .mobile-input {
+    @apply w-full p-3 border border-neutral-300 rounded-lg text-base focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  }
+
+  .mobile-button {
+    @apply w-full py-3 px-4 rounded-lg font-medium transition-colors touch-target;
+  }
+
+  /* Text truncation utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Improve touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+  }
+
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container-custom {
+    @apply px-6;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  .container-custom {
+    @apply px-8;
+  }
+}
+
+/* Loading states */
+.loading-skeleton {
+  @apply animate-pulse bg-neutral-200 rounded;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply outline-2 outline-primary-500 outline-offset-2;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to content link for keyboard users */
+.skip-to-content {
+  @apply bg-primary-600 text-white p-3 absolute top-0 left-0 -translate-y-full focus:translate-y-0 z-50 transition-transform;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .btn-primary, 
+  .btn-secondary {
+    border: 1px solid transparent;
+  }
+}
+
+/* Dropdown scrolling */
+.dropdown-scrollable {
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.dropdown-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.dropdown-scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.dropdown-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Font size classes */
+.text-normal {
+  font-size: var(--base-font-size);
+}
+
+.text-large {
+  font-size: calc(var(--base-font-size) * 1.25);
+}
+
+.text-x-large {
+  font-size: calc(var(--base-font-size) * 1.5);
+}
+
+/* High contrast mode */
+.high-contrast {
+  --text-color: #ffffff;
+  --bg-color: #000000;
+  --link-color: #ffff00;
+}
+
+.high-contrast body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.high-contrast a {
+  color: var(--link-color);
+}
+
+/* Dyslexic font */
+.dyslexic-font body,
+.dyslexic-font h1,
+.dyslexic-font h2,
+.dyslexic-font h3,
+.dyslexic-font h4,
+.dyslexic-font h5,
+.dyslexic-font h6,
+.dyslexic-font p,
+.dyslexic-font span,
+.dyslexic-font a,
+.dyslexic-font button,
+.dyslexic-font input,
+.dyslexic-font select,
+.dyslexic-font textarea {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.001s !important;
+  transition-duration: 0.001s !important;
+}
