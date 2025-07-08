@@ -978,7 +978,7 @@ const Checkout: React.FC = () => {
                         className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300 rounded"
                       />
                       <label htmlFor="agreeToTerms" className="ml-2 block text-sm text-neutral-700">
-                        I agree to the <Link to="/terms" className="text-primary-600 hover:underline">Terms of Service</Link> and <Link to="/privacy" className=\"text-primary-600 hover:underline">Privacy Policy</Link>. I confirm that I am 21 years of age or older.
+                        I agree to the <Link to="/terms" className="text-primary-600 hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary-600 hover:underline">Privacy Policy</Link>. I confirm that I am 21 years of age or older.
                       </label>
                     </div>
                   </div>
